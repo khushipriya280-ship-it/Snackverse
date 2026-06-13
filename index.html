@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnackVerse</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo"><i data-lucide="chef-hat"></i> SnackVerse</div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Recipes</a></li>
+            <li><a href="#">Guided Cooking</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <h1>Make Trending Gen Z Snacks at Home</h1>
+        <p>Simple step-by-step recipes designed for beginners.</p>
+        <button>Explore Recipes</button>
+    </section>
+
+    <section class="search-section">
+        <div class="search-wrapper">
+            <span class="search-icon"><i data-lucide="search"></i></span>
+            <input type="text" id="recipe-search" placeholder="Search for your favorite snack categories..." aria-label="Search recipes">
+            <button id="clear-search" class="clear-btn" aria-label="Clear search" style="display: none;">&times;</button>
+        </div>
+    </section>
+
+    <section class="categories">
+        <h2>Popular Categories</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3><i data-lucide="pizza"></i> Pizza</h3>
+                <p>Homemade cheesy pizzas.</p>
+            </div>
+
+            <div class="card">
+                <h3><i data-lucide="hamburger"></i> Burgers</h3>
+                <p>Café style burgers.</p>
+            </div>
+
+            <div class="card">
+                <h3><i data-lucide="sandwich"></i> Fries</h3>
+                <p>Crispy restaurant fries.</p>
+            </div>
+
+            <div class="card">
+                <h3><i data-lucide="cup-soda"></i> Drinks</h3>
+                <p>Refreshing café beverages.</p>
+            </div>
+
+        </div>
+        <div id="no-results" class="no-results" style="display: none;">
+            <span class="no-results-icon"><i data-lucide="frown"></i></span>
+            <p>No matching categories found! Try searching for pizza, burgers, fries, or drinks.</p>
+        </div>
+    </section>
+
+    <section class="recipes-section" id="trending-recipes">
+        <h2>Trending Recipes</h2>
+        <div class="recipes-grid">
+            
+            <!-- Card 1: Pizza -->
+            <div class="recipe-card" data-category="pizza">
+                <a href="pizza.html" class="recipe-link">
+                    <div class="recipe-image-wrapper">
+                        <img src="pizza_recipe.png" alt="Homemade Cheesy Pizza">
+                        <div class="recipe-badges">
+                            <span class="badge time"><i data-lucide="clock"></i> 25m</span>
+                            <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                        </div>
+                    </div>
+                    <div class="recipe-info">
+                        <h3>Homemade Cheesy Pizza</h3>
+                        <p>Crispy, restaurant-style cheese pizza made with simple ingredients.</p>
+                        <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Card 2: Pesto Eggs -->
+            <div class="recipe-card" data-category="breakfast eggs">
+                <a href="crispy-pesto-eggs.html" class="recipe-link">
+                    <div class="recipe-image-wrapper">
+                        <img src="pesto_eggs.png" alt="Crispy Pesto Eggs">
+                        <div class="recipe-badges">
+                            <span class="badge time"><i data-lucide="clock"></i> 10m</span>
+                            <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                        </div>
+                    </div>
+                    <div class="recipe-info">
+                        <h3>Crispy Pesto Eggs</h3>
+                        <p>Sunny-side up eggs cooked in flavorful, aromatic basil pesto.</p>
+                        <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Card 3: Baked Feta Pasta -->
+            <div class="recipe-card" data-category="pasta dinner">
+                <a href="baked-feta-pasta.html" class="recipe-link">
+                    <div class="recipe-image-wrapper">
+                        <img src="feta_pasta.png" alt="Baked Feta Pasta">
+                        <div class="recipe-badges">
+                            <span class="badge time"><i data-lucide="clock"></i> 35m</span>
+                            <span class="badge difficulty"><i data-lucide="flame"></i> Medium</span>
+                        </div>
+                    </div>
+                    <div class="recipe-info">
+                        <h3>Baked Feta Pasta</h3>
+                        <p>Rich, creamy oven-baked feta cheese and sweet cherry tomato pasta.</p>
+                        <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Card 4: Beef Birria Tacos -->
+            <div class="recipe-card" data-category="tacos meat dinner">
+                <a href="#" class="recipe-link">
+                    <div class="recipe-image-wrapper">
+                        <img src="birria_tacos.png" alt="Beef Birria Tacos">
+                        <div class="recipe-badges">
+                            <span class="badge time"><i data-lucide="clock"></i> 45m</span>
+                            <span class="badge difficulty"><i data-lucide="flame"></i> Hard</span>
+                        </div>
+                    </div>
+                    <div class="recipe-info">
+                        <h3>Beef Birria Tacos</h3>
+                        <p>Slow-cooked beef in savory consommé, folded in crispy cheese tacos.</p>
+                        <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Card 5: Sweet Croffle -->
+            <div class="recipe-card" data-category="croffle dessert sweets">
+                <a href="golden-sweet-croffle.html" class="recipe-link">
+                    <div class="recipe-image-wrapper">
+                        <img src="croffle.png" alt="Golden Sweet Croffle">
+                        <div class="recipe-badges">
+                            <span class="badge time"><i data-lucide="clock"></i> 15m</span>
+                            <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                        </div>
+                    </div>
+                    <div class="recipe-info">
+                        <h3>Golden Sweet Croffle</h3>
+                        <p>Flaky croissant dough pressed into a waffle maker, sweet and crispy.</p>
+                        <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Card 6: Chilled Dalgona Coffee -->
+            <div class="recipe-card" data-category="coffee drinks beverages">
+                <a href="dalgona-coffee.html" class="recipe-link">
+                    <div class="recipe-image-wrapper">
+                        <img src="dalgona_coffee.png" alt="Dalgona Coffee">
+                        <div class="recipe-badges">
+                            <span class="badge time"><i data-lucide="clock"></i> 8m</span>
+                            <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                        </div>
+                    </div>
+                    <div class="recipe-info">
+                        <h3>Dalgona Coffee</h3>
+                        <p>Frothy whipped coffee foam served over iced fresh creamy milk.</p>
+                        <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Card 7: Strawberry Tanghulu -->
+            <div class="recipe-card" data-category="tanghulu dessert fruit sweets">
+                <a href="strawberry-tanghulu.html" class="recipe-link">
+                    <div class="recipe-image-wrapper">
+                        <img src="tanghulu.png" alt="Strawberry Tanghulu">
+                        <div class="recipe-badges">
+                            <span class="badge time"><i data-lucide="clock"></i> 20m</span>
+                            <span class="badge difficulty"><i data-lucide="flame"></i> Medium</span>
+                        </div>
+                    </div>
+                    <div class="recipe-info">
+                        <h3>Strawberry Tanghulu</h3>
+                        <p>Crunchy, glass-like sugar shell-coated sweet strawberries.</p>
+                        <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Card 8: Kewpie Ramen Hack -->
+            <div class="recipe-card" data-category="ramen noodles dinner">
+                <a href="kewpie-ramen-hack.html" class="recipe-link">
+                    <div class="recipe-image-wrapper">
+                        <img src="ramen_hack.png" alt="Kewpie Ramen Hack">
+                        <div class="recipe-badges">
+                            <span class="badge time"><i data-lucide="clock"></i> 12m</span>
+                            <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                        </div>
+                    </div>
+                    <div class="recipe-info">
+                        <h3>Kewpie Ramen Hack</h3>
+                        <p>Creamy, rich garlic-infused egg and mayo upgraded instant ramen.</p>
+                        <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="about">
+        <h2>Why SnackVerse?</h2>
+        <p>
+            SnackVerse helps mothers and beginners prepare trending snacks at home
+            through simple guided recipes, reducing dependency on outside food.
+        </p>
+    </section>
+
+    <footer>
+        <p>© 2026 SnackVerse. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
