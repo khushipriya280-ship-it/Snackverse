@@ -23,12 +23,26 @@ nav a {
     font-family: 'Outfit', sans-serif;
 }
 
+@keyframes dynamic-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes nav-gradient-anim {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 60px;
-    background: #ff6b35;
+    background: linear-gradient(135deg, #0b0f19, #1a152e, #290a36, #1a152e, #0b0f19);
+    background-size: 300% 300%;
+    animation: nav-gradient-anim 12s ease infinite;
     color: white;
 }
 
@@ -44,22 +58,21 @@ nav a {
 }
 
 .hero {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 100px 60px;
-    background: linear-gradient(135deg, #ff1a1a, #990000);
+    text-align: center;
+    padding: 120px 20px;
+    background: linear-gradient(135deg, #ff3366, #ff5e36, #ffa333, #ffd033, #24d182, #18c2c2, #2888ff, #7a33ff, #d933ff, #ff33b8);
+    background-size: 400% 400%;
+    animation: dynamic-gradient 20s ease infinite;
     color: white;
     position: relative;
     overflow: hidden;
-    gap: 50px;
 }
 
 .hero-content {
-    flex: 1.2;
-    text-align: left;
     position: relative;
     z-index: 2;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .hero h1 {
@@ -77,44 +90,26 @@ nav a {
     opacity: 0.95;
     line-height: 1.6;
     max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero button {
     padding: 14px 32px;
     border: none;
     background: white;
-    color: #990000;
+    color: #7a33ff;
     border-radius: 50px;
     cursor: pointer;
     font-weight: 700;
     font-size: 1rem;
-    box-shadow: 0 4px 15px rgba(153, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(122, 51, 255, 0.25);
     transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .hero button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(153, 0, 0, 0.3);
-}
-
-.hero-image-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-}
-
-.hero-image-container img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 20px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-.hero-image-container img:hover {
-    transform: scale(1.03);
+    box-shadow: 0 8px 25px rgba(122, 51, 255, 0.4);
 }
 
 /* Floating Shapes Background System */
@@ -246,28 +241,6 @@ nav a {
     animation: float-8 10.5s ease-in-out infinite;
 }
 
-@media (max-width: 992px) {
-    .hero {
-        flex-direction: column;
-        padding: 80px 30px;
-        text-align: center;
-        gap: 40px;
-    }
-    .hero-content {
-        text-align: center;
-        flex: none;
-        width: 100%;
-    }
-    .hero p {
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .hero-image-container {
-        flex: none;
-        width: 100%;
-        max-width: 500px;
-    }
-}
 
 @media (max-width: 768px) {
     nav {
@@ -1248,6 +1221,84 @@ footer p {
 
 .recipe-card:hover .cta-link .lucide {
     transform: translateX(4px);
+}
+
+/* Clickable Banner Section Below Categories */
+.banner-section {
+    padding: 0 50px 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.collection-banner-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.collection-banner {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    height: 380px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+}
+
+.collection-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.collection-banner:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 35px rgba(255, 26, 26, 0.2);
+}
+
+.collection-banner:hover img {
+    transform: scale(1.02);
+}
+
+/* Collection Page Styles */
+.collection-hero-header {
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+    position: relative;
+    background: #ff1a1a;
+}
+
+.collection-hero-header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.1); /* Slightly zoom in on the sandwich graphic */
+    filter: brightness(0.95);
+}
+
+@media (max-width: 992px) {
+    .collection-banner {
+        height: 280px;
+    }
+    .collection-hero-header {
+        height: 320px;
+    }
+}
+
+@media (max-width: 768px) {
+    .banner-section {
+        padding: 0 20px 30px;
+    }
+    .collection-banner {
+        height: 180px;
+        border-radius: 12px;
+    }
+    .collection-hero-header {
+        height: 220px;
+    }
 }
 
 

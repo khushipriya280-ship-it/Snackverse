@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midnight Cravings Collection - Midnight Cravings</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="recipe-page">
+
+    <nav>
+        <div class="logo"><i data-lucide="chef-hat"></i> SnackVerse</div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#trending-recipes">Recipes</a></li>
+            <li><a href="#">Guided Cooking</a></li>
+            <li><a href="index.html#about">About</a></li>
+        </ul>
+    </nav>
+
+    <div class="collection-hero-header">
+        <img src="hero_banner.png" alt="Midnight Cravings Collection">
+    </div>
+
+    <main class="recipe-container">
+        <a href="index.html" class="back-btn" style="margin-top: 20px; margin-bottom: 20px;"><i data-lucide="arrow-left"></i> Back to Home</a>
+
+        <section class="recipes-section" style="padding-top: 0;">
+            <h2 style="margin-bottom: 45px;">The Midnight Cravings (Sweet & Indulgent)</h2>
+            <div class="recipes-grid">
+                
+                <!-- Card 1: Sweet Croffle -->
+                <div class="recipe-card" data-category="croffle dessert sweets">
+                    <a href="golden-sweet-croffle.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="croffle.png" alt="Golden Sweet Croffle">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 15m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Golden Sweet Croffle</h3>
+                            <p>Flaky croissant dough pressed into a waffle maker, sweet and crispy.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 2: Strawberry Tanghulu -->
+                <div class="recipe-card" data-category="tanghulu dessert fruit sweets">
+                    <a href="strawberry-tanghulu.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="tanghulu.png" alt="Strawberry Tanghulu">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 20m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Medium</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Strawberry Tanghulu</h3>
+                            <p>Crunchy, glass-like sugar shell-coated sweet strawberries.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-bg-shapes">
+            <div class="footer-shape footer-shape-1"><i data-lucide="pizza"></i></div>
+            <div class="footer-shape footer-shape-2"><i data-lucide="cup-soda"></i></div>
+            <div class="footer-shape footer-shape-3"><i data-lucide="cookie"></i></div>
+            <div class="footer-shape footer-shape-4"><i data-lucide="croissant"></i></div>
+            <div class="footer-shape footer-shape-5"><i data-lucide="ice-cream"></i></div>
+            <div class="footer-shape footer-shape-6"><i data-lucide="coffee"></i></div>
+        </div>
+        <p>© 2026 MIDNIGHT CRAVINGS. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Initialize Lucide icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+
+</html>
+
