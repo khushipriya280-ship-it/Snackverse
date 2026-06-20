@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homemade Cheesy Pizza Recipe - Midnight Cravings</title>
+    <title>The Pizza Parlor - Midnight Cravings</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -21,161 +21,240 @@
         </ul>
     </nav>
 
+    <div class="collection-hero-header">
+        <img src="hero_banner.jpg" alt="Pizza Parlor Collection">
+    </div>
+
     <main class="recipe-container">
-        <a href="index.html" class="back-btn"><i data-lucide="arrow-left"></i> Back to Recipes</a>
+        <a href="index.html" class="back-btn" style="margin-top: 20px; margin-bottom: 20px;"><i data-lucide="arrow-left"></i> Back to Home</a>
 
-        <div class="recipe-header">
-            <h1>Homemade Cheesy Pizza</h1>
-            <p class="recipe-subtitle">Crispy, bubbly, restaurant-quality cheese pizza made right in your kitchen.</p>
-            
-            <div class="recipe-meta">
-                <div class="meta-item">
-                    <i data-lucide="clock"></i>
-                    <span class="meta-label">Cook Time</span>
-                    <span class="meta-value">25 Mins</span>
-                </div>
-                <div class="meta-item">
-                    <i data-lucide="flame"></i>
-                    <span class="meta-label">Difficulty</span>
-                    <span class="meta-value">Easy</span>
-                </div>
-                <div class="meta-item">
-                    <i data-lucide="users"></i>
-                    <span class="meta-label">Servings</span>
-                    <span class="meta-value">2 Portions</span>
-                </div>
-                <div class="meta-item">
-                    <i data-lucide="star"></i>
-                    <span class="meta-label">Rating</span>
-                    <span class="meta-value">4.9 / 5.0</span>
-                </div>
+        <!-- Category Portal Filter & Search -->
+        <section class="search-section" style="padding: 20px 0; margin-bottom: 30px;">
+            <div class="search-wrapper" style="max-width: 600px; margin: 0 auto 20px;">
+                <span class="search-icon"><i data-lucide="search"></i></span>
+                <input type="text" id="recipe-search" placeholder="Search pizza recipes..." aria-label="Search pizza recipes">
+                <button id="clear-search" class="clear-btn" aria-label="Clear search" style="display: none;">&times;</button>
             </div>
-        </div>
-
-        <div class="recipe-hero-image">
-            <img src="pizza_recipe.png" alt="Homemade Cheesy Pizza">
-        </div>
-
-        <div class="recipe-content-grid">
             
-            <!-- Ingredients Section -->
-            <section class="recipe-ingredients">
-                <h2>Ingredients</h2>
-                <p class="section-tip">Tip: Tap items to check them off as you prep!</p>
-                
-                <ul class="checklist-items">
-                    <li>
-                        <label class="checklist-item">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                            <span class="item-text">250g Pizza Dough (store-bought or homemade)</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="checklist-item">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                            <span class="item-text">1/2 cup Premium Pizza Tomato Sauce</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="checklist-item">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                            <span class="item-text">1.5 cups Shredded Mozzarella Cheese</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="checklist-item">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                            <span class="item-text">1 tbsp Olive Oil (for brushing the crust)</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="checklist-item">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                            <span class="item-text">Fresh Basil Leaves (for garnish)</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="checklist-item">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                            <span class="item-text">1 tsp Oregano and Red Chili Flakes</span>
-                        </label>
-                    </li>
-                    <li>
-                        <label class="checklist-item">
-                            <input type="checkbox">
-                            <span class="checkmark"></span>
-                            <span class="item-text">Semolina or Cornmeal (for dusting)</span>
-                        </label>
-                    </li>
-                </ul>
-            </section>
+            <div class="tag-filters" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+                <button class="filter-tag active" data-filter="all">All</button>
+                <button class="filter-tag" data-filter="fusion">Fusion</button>
+                <button class="filter-tag" data-filter="baking">Baking</button>
+                <button class="filter-tag" data-filter="tawa">Tawa & Skillet</button>
+                <button class="filter-tag" data-filter="quick">Quick Snacks</button>
+            </div>
+        </section>
 
-            <!-- Instructions Section -->
-            <section class="recipe-instructions">
-                <h2>Step-by-Step Instructions</h2>
-                <p class="section-tip">Follow steps sequentially. Mark completed steps to keep track.</p>
-                
-                <ol class="steps-list">
-                    <li class="step-card">
-                        <label class="step-checkbox-container">
-                            <input type="checkbox">
-                            <span class="step-num">1</span>
-                            <div class="step-details">
-                                <h3>Preheat the Oven</h3>
-                                <p>Preheat your oven to its highest setting (usually 250°C / 480°F). If using a pizza stone, place it on the middle rack to heat up for at least 30 minutes.</p>
-                            </div>
-                        </label>
-                    </li>
-                    <li class="step-card">
-                        <label class="step-checkbox-container">
-                            <input type="checkbox">
-                            <span class="step-num">2</span>
-                            <div class="step-details">
-                                <h3>Shape the Dough</h3>
-                                <p>Dust your workspace with semolina or cornmeal. Gently press and stretch the pizza dough from the center outwards into a 12-inch circle. Keep the border slightly thicker.</p>
-                            </div>
-                        </label>
-                    </li>
-                    <li class="step-card">
-                        <label class="step-checkbox-container">
-                            <input type="checkbox">
-                            <span class="step-num">3</span>
-                            <div class="step-details">
-                                <h3>Sauce & Cheese base</h3>
-                                <p>Transfer the stretched dough onto a pizza peel or parchment paper. Spread the tomato sauce evenly, leaving a 1/2-inch border. Scatter the mozzarella cheese generously over the sauce.</p>
-                            </div>
-                        </label>
-                    </li>
-                    <li class="step-card">
-                        <label class="step-checkbox-container">
-                            <input type="checkbox">
-                            <span class="step-num">4</span>
-                            <div class="step-details">
-                                <h3>Bake to Perfection</h3>
-                                <p>Carefully slide the pizza (with parchment, or off peel) onto the hot pizza stone. Bake for 8–10 minutes, or until the crust is golden-brown and the cheese is bubbling and slightly charred.</p>
-                            </div>
-                        </label>
-                    </li>
-                    <li class="step-card">
-                        <label class="step-checkbox-container">
-                            <input type="checkbox">
-                            <span class="step-num">5</span>
-                            <div class="step-details">
-                                <h3>Finishing Touches</h3>
-                                <p>Remove from the oven. Brush the outer crust border lightly with olive oil. Scatter fresh basil leaves, oregano, and chili flakes on top. Let cool for 2 minutes, slice, and enjoy!</p>
-                            </div>
-                        </label>
-                    </li>
-                </ol>
-            </section>
+        <section class="recipes-section" style="padding: 0; background: transparent;">
+            <h2 style="margin-bottom: 45px;">The Pizza Parlor (Cheesy Midnight Cravings)</h2>
             
-        </div>
+            <div class="recipes-grid" id="pizza-grid">
+                
+                <!-- Card 1: Homemade Cheesy Pizza -->
+                <div class="recipe-card" data-category="baking cheesy italian simple all">
+                    <a href="homemade-cheesy-pizza.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="pizza_recipe.png" alt="Homemade Cheesy Pizza">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 25m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Homemade Cheesy Pizza</h3>
+                            <p>Crispy, bubbly, restaurant-quality cheese pizza made right in your kitchen.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 2: Cheesy Vegetarian Pizza Muffins -->
+                <div class="recipe-card" data-category="baking muffins fusion quick snacks veg all">
+                    <a href="cheesy-vegetarian-pizza-muffins.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="pizza_muffins.png" alt="Cheesy Vegetarian Pizza Muffins">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 55m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Medium</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Cheesy Vegetarian Pizza Muffins</h3>
+                            <p>Bite-sized savory muffins packed with pizza flavor and a gooey melted cheese crown.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 3: Gujarati Dhokla Pizza -->
+                <div class="recipe-card" data-category="steamed fusion dhokla indian high protein veg all">
+                    <a href="gujarati-dhokla-pizza.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="dhokla_pizza.png" alt="Gujarati Dhokla Pizza">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 40m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Medium</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Gujarati Dhokla Pizza</h3>
+                            <p>A unique fusion twist combining soft, steamed Khatta Dhokla with classic Italian pizza toppings.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 4: Sweet and Spicy Pineapple Paneer Tikka Tawa Pizza -->
+                <div class="recipe-card" data-category="tawa skillet fusion paneer sweet spicy veg all">
+                    <a href="sweet-and-spicy-pineapple-paneer-tikka-tawa-pizza.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="pineapple_paneer_pizza.png" alt="Sweet and Spicy Pineapple Paneer Pizza">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 135m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Hard</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Pineapple Paneer Tikka Tawa Pizza</h3>
+                            <p>A delicious stovetop fusion pizza featuring marinated paneer tikka and sweet caramelized pineapple.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 5: Tandoori Paneer Tikka Skillet Pizza -->
+                <div class="recipe-card" data-category="tawa skillet skillet fusion tandoori paneer veg all">
+                    <a href="tandoori-paneer-tikka-skillet-pizza.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="tandoori_paneer_pizza.png" alt="Tandoori Paneer Tikka Skillet Pizza">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 45m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Medium</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Tandoori Paneer Tikka Skillet Pizza</h3>
+                            <p>Smoky tandoori paneer tikka pizza baked to perfection in a skillet with a soft whole wheat crust.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 6: Khakhra Pizza -->
+                <div class="recipe-card" data-category="crispy raw quick snacks indian light veg all">
+                    <a href="khakhra-pizza.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="khakhra_pizza.png" alt="Khakhra Pizza">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 35m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Khakhra Pizza with Veggies</h3>
+                            <p>Super crispy and thin whole-wheat flatbread pizza topped with peppy cheese spread and sautéed veggies.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 7: Pav Bhaji Pizza -->
+                <div class="recipe-card" data-category="baking fusion street food pav bhaji indian veg all">
+                    <a href="pav-bhaji-pizza.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="pav_bhaji_pizza.png" alt="Pav Bhaji Pizza">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 75m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Medium</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Pav Bhaji Pizza</h3>
+                            <p>A street-food fusion sensation loading rich, spicy vegetable bhaji onto a crispy butter-toasted crust.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 8: Cheesy Tawa Pizza with Corn and Broccoli -->
+                <div class="recipe-card" data-category="tawa skillet cheesy corn broccoli quick snacks veg all">
+                    <a href="cheesy-tawa-pizza-corn-broccoli.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="corn_broccoli_pizza.png" alt="Cheesy Tawa Pizza with Corn and Broccoli">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 40m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Cheesy Tawa Pizza (Corn & Broccoli)</h3>
+                            <p>A quick, healthy stovetop pizza loaded with sweet corn, broccoli, black olives, and melted cheese.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 9: Pull Apart Mini Pizza Boats -->
+                <div class="recipe-card" data-category="baking pull apart mini pizza boats mushrooms veg all">
+                    <a href="pull-apart-mini-pizza-boats.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="pizza_boats.png" alt="Pull Apart Mini Pizza Boats">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 100m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Hard</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Pull Apart Mini Pizza Boats</h3>
+                            <p>Fun, shareable bread rolls shaped like boats, filled with mushrooms, capsicum, and a mountain of cheese.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 10: Bread Waffle Pizza -->
+                <div class="recipe-card" data-category="waffle quick snacks simple cheesy sandwich veg all">
+                    <a href="bread-waffle-pizza.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="bread_waffle_pizza.png" alt="Bread Waffle Pizza">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 30m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Bread Waffle Pizza</h3>
+                            <p>A quick waffle-maker hack transforming bread slices into a crispy, cheese-stuffed waffle sandwich.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 11: Mini Bread Pizza (Cheesy Canapes) -->
+                <div class="recipe-card" data-category="baking quick snacks simple mini bread cheesy veg all">
+                    <a href="mini-bread-pizza.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="mini_bread_pizza.png" alt="Mini Bread Pizza Canapes">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 35m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Mini Bread Pizza Canapes</h3>
+                            <p>Perfect party-sized mini pizzas featuring circular bread crusts stuffed with paneer and veggie filling.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <div id="no-results" class="no-results" style="display: none;">
+                <span class="no-results-icon"><i data-lucide="frown"></i></span>
+                <p>No matching pizza recipes found! Try searching for another keyword or change your filter.</p>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -190,27 +269,92 @@
         <p>© 2026 MIDNIGHT CRAVINGS. All Rights Reserved.</p>
     </footer>
 
+    <style>
+        .filter-tag {
+            background: white;
+            color: #ff6b35;
+            border: 2px solid #ffbeab;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .filter-tag:hover {
+            border-color: #ff5e62;
+            background: #fff6f3;
+        }
+        .filter-tag.active {
+            background: #ff5e62;
+            color: white;
+            border-color: #ff5e62;
+            box-shadow: 0 4px 15px rgba(255, 94, 98, 0.25);
+        }
+    </style>
+
     <script>
-        // Interactive styling for checking ingredients and recipe steps
-        document.querySelectorAll('.checklist-item input[type="checkbox"]').forEach(checkbox => {
-            checkbox.addEventListener('change', (e) => {
-                const label = e.target.closest('.checklist-item');
-                if (e.target.checked) {
-                    label.classList.add('checked');
+        const searchInput = document.getElementById('recipe-search');
+        const clearBtn = document.getElementById('clear-search');
+        const filterTags = document.querySelectorAll('.filter-tag');
+        const recipeCards = document.querySelectorAll('.recipe-card');
+        const noResults = document.getElementById('no-results');
+
+        let activeFilter = 'all';
+        let searchQuery = '';
+
+        function filterRecipes() {
+            let visibleCount = 0;
+
+            recipeCards.forEach(card => {
+                const categories = card.getAttribute('data-category');
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+
+                const matchesFilter = (activeFilter === 'all' || categories.includes(activeFilter));
+                const matchesSearch = (!searchQuery || title.includes(searchQuery) || description.includes(searchQuery));
+
+                if (matchesFilter && matchesSearch) {
+                    card.style.display = 'block';
+                    visibleCount++;
                 } else {
-                    label.classList.remove('checked');
+                    card.style.display = 'none';
                 }
             });
+
+            if (visibleCount === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+
+        // Search Input listener
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.toLowerCase().trim();
+            if (searchQuery) {
+                clearBtn.style.display = 'flex';
+            } else {
+                clearBtn.style.display = 'none';
+            }
+            filterRecipes();
         });
 
-        document.querySelectorAll('.step-checkbox-container input[type="checkbox"]').forEach(checkbox => {
-            checkbox.addEventListener('change', (e) => {
-                const card = e.target.closest('.step-card');
-                if (e.target.checked) {
-                    card.classList.add('completed');
-                } else {
-                    card.classList.remove('completed');
-                }
+        // Clear Search Button
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            searchQuery = '';
+            clearBtn.style.display = 'none';
+            filterRecipes();
+        });
+
+        // Tag Filter listeners
+        filterTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                filterTags.forEach(t => t.classList.remove('active'));
+                tag.classList.add('active');
+                activeFilter = tag.getAttribute('data-filter');
+                filterRecipes();
             });
         });
 
@@ -222,4 +366,3 @@
 </body>
 
 </html>
-
