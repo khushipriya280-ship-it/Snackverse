@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Fries Corner - Midnight Cravings</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="recipe-page">
+
+    <nav>
+        <div class="logo"><i data-lucide="chef-hat"></i> SnackVerse</div>
+        <div class="nav-actions">
+            <div class="nav-search-wrapper">
+                <span class="search-icon"><i data-lucide="search"></i></span>
+                <input type="text" id="recipe-search" placeholder="Search fries recipes..." aria-label="Search fries recipes">
+                <button id="clear-search" class="clear-btn" aria-label="Clear search" style="display: none;">&times;</button>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#trending-recipes">Recipes</a></li>
+                <li><a href="#">Guided Cooking</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="collection-hero-header">
+        <img src="hero_banner.jpg" alt="Fries Corner Collection">
+    </div>
+
+    <main class="recipe-container">
+        <a href="index.html" class="back-btn" style="margin-top: 20px; margin-bottom: 20px;"><i data-lucide="arrow-left"></i> Back to Home</a>
+
+        <!-- Category Portal Filter & Search -->
+        <section class="search-section" style="padding: 20px 0; margin-bottom: 30px;">
+            <div class="tag-filters" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+                <button class="filter-tag active" data-filter="all">All</button>
+                <button class="filter-tag" data-filter="baking">Baking</button>
+                <button class="filter-tag" data-filter="healthy">Healthy</button>
+                <button class="filter-tag" data-filter="potatoes">Potatoes</button>
+                <button class="filter-tag" data-filter="crisps">Crisps & Chips</button>
+            </div>
+        </section>
+
+        <section class="recipes-section" style="padding: 0; background: transparent;">
+            <h2 style="margin-bottom: 45px;">The Fries Corner (Crispy Midnight Munchies)</h2>
+            
+            <div class="recipes-grid" id="fries-grid">
+                
+                <!-- Card 1: Healthy Vegetable Fries -->
+                <div class="recipe-card" data-category="veg healthy potatoes baking all">
+                    <a href="healthy-vegetable-fries.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="veg_fries.png" alt="Healthy Vegetable Fries">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 45m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Healthy Vegetable Fries</h3>
+                            <p>A wholesome oven-roasted mix of potato, green zucchini, and sweet carrot fries seasoned with Italian herbs.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 2: Oven Baked Sweet Potato Fries -->
+                <div class="recipe-card" data-category="veg healthy potatoes baking sweet-potato all">
+                    <a href="sweet-potato-fries.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="sweet_potato_fries.png" alt="Oven Baked Sweet Potato Fries">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 35m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Oven Baked Sweet Potato Fries</h3>
+                            <p>Crispy and sweet oven-baked sweet potato wedges tossed with olive oil and spices.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 3: Parmesan Corn Chili Fries -->
+                <div class="recipe-card" data-category="veg potatoes cheese spicy all">
+                    <a href="parmesan-corn-chili-fries.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="parmesan_chili_fries.png" alt="Parmesan Corn Chili Fries">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 40m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Parmesan Corn Chili Fries</h3>
+                            <p>Mouthwatering fries loaded with sweet corn, melted parmesan cheese, and a kick of chili flakes.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 4: Baked Polenta Fries -->
+                <div class="recipe-card" data-category="veg healthy baking polenta all">
+                    <a href="baked-polenta-fries.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="polenta_fries.png" alt="Baked Polenta Fries">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 45m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Baked Polenta Fries</h3>
+                            <p>Savory cornmeal polenta sticks baked to a golden crispness, perfect for dipping.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 5: Loaded Baked Potato French Fries -->
+                <div class="recipe-card" data-category="veg potatoes baking cheesy loaded all">
+                    <a href="loaded-baked-potato-french-fries.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="loaded_french_fries.png" alt="Loaded Baked Potato French Fries">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 50m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Medium</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Loaded Baked Potato French Fries</h3>
+                            <p>Indulgent oven-baked french fries loaded with cheddar cheese, sour cream, and fresh chives.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 6: Tandoori Potato Wedges -->
+                <div class="recipe-card" data-category="veg potatoes baking fusion tandoori all">
+                    <a href="tandoori-potato-wedges.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="tandoori_wedges.png" alt="Tandoori Potato Wedges">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 45m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Medium</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Tandoori Potato Wedges</h3>
+                            <p>Thick potato wedges coated in a smoky tandoori yogurt marinade and baked until crispy.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 7: Garlic & Ginger Spiced Potato Wedges -->
+                <div class="recipe-card" data-category="veg potatoes baking garlic ginger all">
+                    <a href="garlic-ginger-potato-wedges.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="garlic_ginger_wedges.png" alt="Garlic & Ginger Spiced Potato Wedges">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 50m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Garlic & Ginger Potato Wedges</h3>
+                            <p>Flavorful potato wedges baked with a kick of fresh garlic, ginger, and aromatic spices.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 8: Sweet Potato & Rosemary Crisps -->
+                <div class="recipe-card" data-category="veg healthy crisps rosemary sweet-potato all">
+                    <a href="rosemary-sweet-potato-chips.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="sweet_potato_chips.png" alt="Sweet Potato & Rosemary Crisps">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 35m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Rosemary Sweet Potato Crisps</h3>
+                            <p>Thinly sliced sweet potatoes baked with fresh rosemary and sea salt until perfectly crunchy.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 9: Baked Banana Chips -->
+                <div class="recipe-card" data-category="veg healthy crisps banana banana-chips all">
+                    <a href="baked-banana-chips.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="banana_chips.png" alt="Baked Banana Chips">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 30m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Baked Banana Chips</h3>
+                            <p>A healthy, oven-baked version of classic Kerala style crispy banana chips with turmeric and salt.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 10: Baked Corn & Flour Tortilla Chips (Paprika) -->
+                <div class="recipe-card" data-category="veg healthy crisps tortilla paprika all">
+                    <a href="baked-tortilla-chips-paprika.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="tortilla_chips.png" alt="Baked Corn & Flour Tortilla Chips (Paprika)">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 35m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Baked Corn & Tortilla Chips</h3>
+                            <p>Crispy, homemade oven-baked tortilla chips seasoned with smoky paprika, perfect with salsa.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <div id="no-results" class="no-results" style="display: none;">
+                <span class="no-results-icon"><i data-lucide="frown"></i></span>
+                <p>No matching fries or chips recipes found! Try searching for another keyword or change your filter.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-bg-shapes">
+            <div class="footer-shape footer-shape-1"><i data-lucide="pizza"></i></div>
+            <div class="footer-shape footer-shape-2"><i data-lucide="cup-soda"></i></div>
+            <div class="footer-shape footer-shape-3"><i data-lucide="cookie"></i></div>
+            <div class="footer-shape footer-shape-4"><i data-lucide="croissant"></i></div>
+            <div class="footer-shape footer-shape-5"><i data-lucide="ice-cream"></i></div>
+            <div class="footer-shape footer-shape-6"><i data-lucide="coffee"></i></div>
+        </div>
+        <p>© 2026 MIDNIGHT CRAVINGS. All Rights Reserved.</p>
+    </footer>
+
+    <style>
+        .filter-tag {
+            background: white;
+            color: #ff6b35;
+            border: 2px solid #ffbeab;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .filter-tag:hover {
+            border-color: #ff5e62;
+            background: #fff6f3;
+        }
+        .filter-tag.active {
+            background: #ff5e62;
+            color: white;
+            border-color: #ff5e62;
+            box-shadow: 0 4px 15px rgba(255, 94, 98, 0.25);
+        }
+    </style>
+
+    <script>
+        const searchInput = document.getElementById('recipe-search');
+        const clearBtn = document.getElementById('clear-search');
+        const filterTags = document.querySelectorAll('.filter-tag');
+        const recipeCards = document.querySelectorAll('.recipe-card');
+        const noResults = document.getElementById('no-results');
+
+        let activeFilter = 'all';
+        let searchQuery = '';
+
+        function filterRecipes() {
+            let visibleCount = 0;
+
+            recipeCards.forEach(card => {
+                const categories = card.getAttribute('data-category');
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+
+                const matchesFilter = (activeFilter === 'all' || categories.includes(activeFilter));
+                const matchesSearch = (!searchQuery || title.includes(searchQuery) || description.includes(searchQuery));
+
+                if (matchesFilter && matchesSearch) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+
+        // Search Input listener
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.toLowerCase().trim();
+            if (searchQuery) {
+                clearBtn.style.display = 'flex';
+            } else {
+                clearBtn.style.display = 'none';
+            }
+            filterRecipes();
+        });
+
+        // Clear Search Button
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            searchQuery = '';
+            clearBtn.style.display = 'none';
+            filterRecipes();
+        });
+
+        // Tag Filter listeners
+        filterTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                filterTags.forEach(t => t.classList.remove('active'));
+                tag.classList.add('active');
+                activeFilter = tag.getAttribute('data-filter');
+                filterRecipes();
+            });
+        });
+
+        // Initialize Lucide icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+
+</html>
