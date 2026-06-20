@@ -13,12 +13,19 @@
 
     <nav>
         <div class="logo"><i data-lucide="chef-hat"></i> SnackVerse</div>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Recipes</a></li>
-            <li><a href="#">Guided Cooking</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
+        <div class="nav-actions">
+            <div class="nav-search-wrapper">
+                <span class="search-icon"><i data-lucide="search"></i></span>
+                <input type="text" id="recipe-search" placeholder="Search for your favorite snack categories..." aria-label="Search recipes">
+                <button id="clear-search" class="clear-btn" aria-label="Clear search" style="display: none;">&times;</button>
+            </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Recipes</a></li>
+                <li><a href="#">Guided Cooking</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
     </nav>
 
     <section class="hero">
@@ -36,14 +43,6 @@
             <div class="floating-shape shape-6"><i data-lucide="sandwich"></i></div>
             <div class="floating-shape shape-7"><i data-lucide="cake"></i></div>
             <div class="floating-shape shape-8"><i data-lucide="coffee"></i></div>
-        </div>
-    </section>
-
-    <section class="search-section">
-        <div class="search-wrapper">
-            <span class="search-icon"><i data-lucide="search"></i></span>
-            <input type="text" id="recipe-search" placeholder="Search for your favorite snack categories..." aria-label="Search recipes">
-            <button id="clear-search" class="clear-btn" aria-label="Clear search" style="display: none;">&times;</button>
         </div>
     </section>
 

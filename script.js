@@ -10,7 +10,7 @@ const noResults = document.getElementById("no-results");
 
 if (exploreBtn && searchInput) {
     exploreBtn.addEventListener("click", () => {
-        searchInput.scrollIntoView({ behavior: "smooth", block: "center" });
+        window.scrollTo({ top: 0, behavior: "smooth" });
         searchInput.focus();
     });
 }
