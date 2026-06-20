@@ -1241,7 +1241,7 @@ footer p {
     border-radius: 20px;
     overflow: hidden;
     height: auto;
-    aspect-ratio: 1024 / 660;
+    aspect-ratio: 1370 / 440;
     background-color: #fb0203;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
@@ -1267,7 +1267,7 @@ footer p {
 .collection-hero-header {
     width: 100%;
     height: auto;
-    aspect-ratio: 1024 / 660;
+    aspect-ratio: 1370 / 440;
     overflow: hidden;
     position: relative;
     background-color: #fb0203;
