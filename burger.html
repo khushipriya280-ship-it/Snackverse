@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Burger joint - Midnight Cravings</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="recipe-page">
+
+    <nav>
+        <div class="logo"><i data-lucide="chef-hat"></i> SnackVerse</div>
+        <div class="nav-actions">
+            <div class="nav-search-wrapper">
+                <span class="search-icon"><i data-lucide="search"></i></span>
+                <input type="text" id="recipe-search" placeholder="Search burger recipes..." aria-label="Search burger recipes">
+                <button id="clear-search" class="clear-btn" aria-label="Clear search" style="display: none;">&times;</button>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#trending-recipes">Recipes</a></li>
+                <li><a href="#">Guided Cooking</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="collection-hero-header">
+        <img src="hero_banner.jpg" alt="Burger Joint Collection">
+    </div>
+
+    <main class="recipe-container">
+        <a href="index.html" class="back-btn" style="margin-top: 20px; margin-bottom: 20px;"><i data-lucide="arrow-left"></i> Back to Home</a>
+
+        <!-- Category Portal Filter & Search -->
+        <section class="search-section" style="padding: 20px 0; margin-bottom: 30px;">
+            <div class="tag-filters" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-top: 15px;">
+                <button class="filter-tag active" data-filter="all">All</button>
+                <button class="filter-tag" data-filter="veg">Vegetarian</button>
+                <button class="filter-tag" data-filter="non-veg">Non-Vegetarian</button>
+                <button class="filter-tag" data-filter="skillet">Grill & Skillet</button>
+                <button class="filter-tag" data-filter="healthy">Healthy</button>
+            </div>
+        </section>
+
+        <section class="recipes-section" style="padding: 0; background: transparent;">
+            <h2 style="margin-bottom: 45px;">The Burger Joint (Midnight Comfort Food)</h2>
+            
+            <div class="recipes-grid" id="burger-grid">
+                
+                <!-- Card 1: Veg Chili Cheese Burgers -->
+                <div class="recipe-card" data-category="veg skillet spicy all">
+                    <a href="veg-chili-cheese-burger.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="veg_chili_cheese_burger.png" alt="Veg Chili Cheese Burger">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 55m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Medium</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Veg Chili Cheese Burger</h3>
+                            <p>A decadent burger loading a crispy potato patty and melted cheddar cheese with a rich soy granule chili sauce.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 2: Vegan Burger Recipe With Beans And Tofu Patty -->
+                <div class="recipe-card" data-category="veg vegan grill healthy all">
+                    <a href="vegan-bean-tofu-burger.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="vegan_bean_tofu_burger.png" alt="Vegan Bean and Tofu Burger">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 80m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Medium</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Vegan Bean & Tofu Burger</h3>
+                            <p>A clean, protein-packed vegan burger with a grilled mixed bean and tofu patty, fresh lettuce, and tomato.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 3: Healthy Black Bean Burger Recipe Without Bun -->
+                <div class="recipe-card" data-category="veg grill healthy all">
+                    <a href="black-bean-bunless-burger.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="black_bean_bunless_burger.png" alt="Healthy Bunless Black Bean Burger">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 80m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Hard</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Bunless Black Bean Burger</h3>
+                            <p>A low-carb, nutrient-rich stack of grilled black bean patty, pineapple, beetroot, avocado, and fresh greens.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 4: Avengers Cheeseburger (Aloo Tikki Burger) -->
+                <div class="recipe-card" data-category="veg baking skillet fusion all">
+                    <a href="aloo-tikki-burger.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="aloo_tikki_burger.png" alt="Avengers Cheeseburger (Aloo Tikki Burger)">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 55m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Medium</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Avengers Aloo Tikki Burger</h3>
+                            <p>A classic fusion favorite featuring a crispy spiced aloo tikki patty and melted cheese spread in a toasted bun.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 5: Open Burger with Vegetable Patty Recipe -->
+                <div class="recipe-card" data-category="veg skillet fusion all">
+                    <a href="open-veggie-burger.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="open_veggie_burger.png" alt="Open Burger with Vegetable Patty">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 100m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Medium</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Open Vegetable Patty Burger</h3>
+                            <p>A fun open-faced burger showcasing a breaded potato-peas-carrot patty topped with garlic mayonnaise and crispy bhujia.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 6: Five Spice Bean Burger -->
+                <div class="recipe-card" data-category="veg skillet fusion all">
+                    <a href="five-spice-bean-burger.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="five_spice_bean_burger.png" alt="Five Spice Bean Burger">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 30m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Easy</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Five Spice Bean Burger</h3>
+                            <p>A unique, aromatic burger infused with Chinese five-spice powder, soy sauce, and melted cheese on a bean patty.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 7: Veggie Chop Burger -->
+                <div class="recipe-card" data-category="veg skillet all">
+                    <a href="veggie-chop-burger.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="veggie_chop_burger.png" alt="Veggie Chop Burger">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 60m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Medium</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Veggie Chop Burger</h3>
+                            <p>A crispy street-style chop patty stuffed with beets, carrots, and peas, layered with lettuce and burger mayonnaise.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 8: Spicy Mushroom Veggie Burger -->
+                <div class="recipe-card" data-category="veg skillet all">
+                    <a href="spicy-mushroom-burger.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="spicy_mushroom_burger.png" alt="Spicy Mushroom Veggie Burger">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 50m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Medium</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Spicy Mushroom Veggie Burger</h3>
+                            <p>A fiery sautéed button mushroom stir-fry burger with spicy chili sauce and a creamy coleslaw layer.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 9: Mexican Chicken Burger -->
+                <div class="recipe-card" data-category="non-veg skillet spicy all">
+                    <a href="mexican-chicken-burger.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="mexican_chicken_burger.png" alt="Mexican Chicken Burger">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 30m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Medium</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Mexican Chicken Burger</h3>
+                            <p>A zestful minced chicken patty burger seasoned with jalapenos and cilantro, topped with tomato salsa and sour cream.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Card 10: Homemade Black Bean Burger -->
+                <div class="recipe-card" data-category="veg skillet healthy all">
+                    <a href="homemade-black-bean-burger.html" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="homemade_black_bean_burger.png" alt="Homemade Black Bean Burger">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> 75m</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> Medium</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>Homemade Black Bean Burger</h3>
+                            <p>A wholesome homemade black bean patty burger seasoned with mint and paprika on a whole wheat sandwich bun.</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+            <div id="no-results" class="no-results" style="display: none;">
+                <span class="no-results-icon"><i data-lucide="frown"></i></span>
+                <p>No matching burger recipes found! Try searching for another keyword or change your filter.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-bg-shapes">
+            <div class="footer-shape footer-shape-1"><i data-lucide="pizza"></i></div>
+            <div class="footer-shape footer-shape-2"><i data-lucide="cup-soda"></i></div>
+            <div class="footer-shape footer-shape-3"><i data-lucide="cookie"></i></div>
+            <div class="footer-shape footer-shape-4"><i data-lucide="croissant"></i></div>
+            <div class="footer-shape footer-shape-5"><i data-lucide="ice-cream"></i></div>
+            <div class="footer-shape footer-shape-6"><i data-lucide="coffee"></i></div>
+        </div>
+        <p>© 2026 MIDNIGHT CRAVINGS. All Rights Reserved.</p>
+    </footer>
+
+    <style>
+        .filter-tag {
+            background: white;
+            color: #ff6b35;
+            border: 2px solid #ffbeab;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .filter-tag:hover {
+            border-color: #ff5e62;
+            background: #fff6f3;
+        }
+        .filter-tag.active {
+            background: #ff5e62;
+            color: white;
+            border-color: #ff5e62;
+            box-shadow: 0 4px 15px rgba(255, 94, 98, 0.25);
+        }
+    </style>
+
+    <script>
+        const searchInput = document.getElementById('recipe-search');
+        const clearBtn = document.getElementById('clear-search');
+        const filterTags = document.querySelectorAll('.filter-tag');
+        const recipeCards = document.querySelectorAll('.recipe-card');
+        const noResults = document.getElementById('no-results');
+
+        let activeFilter = 'all';
+        let searchQuery = '';
+
+        function filterRecipes() {
+            let visibleCount = 0;
+
+            recipeCards.forEach(card => {
+                const categories = card.getAttribute('data-category');
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+
+                const matchesFilter = (activeFilter === 'all' || categories.includes(activeFilter));
+                const matchesSearch = (!searchQuery || title.includes(searchQuery) || description.includes(searchQuery));
+
+                if (matchesFilter && matchesSearch) {
+                    card.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResults.style.display = 'block';
+            } else {
+                noResults.style.display = 'none';
+            }
+        }
+
+        // Search Input listener
+        searchInput.addEventListener('input', (e) => {
+            searchQuery = e.target.value.toLowerCase().trim();
+            if (searchQuery) {
+                clearBtn.style.display = 'flex';
+            } else {
+                clearBtn.style.display = 'none';
+            }
+            filterRecipes();
+        });
+
+        // Clear Search Button
+        clearBtn.addEventListener('click', () => {
+            searchInput.value = '';
+            searchQuery = '';
+            clearBtn.style.display = 'none';
+            filterRecipes();
+        });
+
+        // Tag Filter listeners
+        filterTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                filterTags.forEach(t => t.classList.remove('active'));
+                tag.classList.add('active');
+                activeFilter = tag.getAttribute('data-filter');
+                filterRecipes();
+            });
+        });
+
+        // Initialize Lucide icons
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    </script>
+</body>
+
+</html>
