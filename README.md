@@ -28,6 +28,15 @@ SnackVerse is a modern, responsive web application designed to help beginners, h
 - **JavaScript (Vanilla)**: Search filtering, clear-query logic, and interactive components.
 - **Lucide Icons**: Clean, developer-friendly iconography library.
 
+## Directory Structure
+
+The project codebase is organized into structured subdirectories:
+- `/` - Main homepage (`index.html`), search page (`searched.html`), and collection hub pages (`pizza.html`, `burger.html`, `fries.html`, `midnight-cravings.html`).
+- `/css/` - Custom stylesheets (`style.css`).
+- `/js/` - JavaScript logic files (`script.js`, `global-search.js`).
+- `/images/` - Category banner and recipe image assets.
+- `/recipes/` - 48 individual recipe detail pages.
+
 ## Getting Started
 
 Since this is a client-side static web application, no compilation or local server setup is required.
