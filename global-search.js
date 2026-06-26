@@ -123,4 +123,57 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     }
+
+    // Dynamic Professional Footer Injection
+    const footer = document.querySelector("footer");
+    if (footer) {
+        footer.innerHTML = `
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <div class="logo"><i data-lucide="chef-hat"></i> SnackVerse</div>
+                    <p class="footer-description">Level up your late-night kitchen game with Gen Z's favorite trending comfort food recipes. Quick, simple, and satisfying.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                        <a href="#" aria-label="YouTube"><i data-lucide="youtube"></i></a>
+                        <a href="#" aria-label="TikTok">
+                            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-music"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                        </a>
+                        <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links-grid">
+                    <div class="footer-links-col">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="index.html#trending-recipes">Recipes</a></li>
+                            <li><a href="#">Guided Cooking</a></li>
+                            <li><a href="index.html#about">About</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Vibe Categories</h4>
+                        <ul>
+                            <li><a href="pizza.html">Pizza Parlor</a></li>
+                            <li><a href="burger.html">Burger Joint</a></li>
+                            <li><a href="fries.html">Fries Corner</a></li>
+                            <li><a href="midnight-cravings.html">Midnight Munchies</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-links-col">
+                        <h4>Contact Info</h4>
+                        <p><i data-lucide="mail"></i> cravings@snackverse.com</p>
+                        <p><i data-lucide="map-pin"></i> Gen Z Kitchen, Cloud City</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 MIDNIGHT CRAVINGS. All Rights Reserved. Levelled up with 💜</p>
+            </div>
+        `;
+        // Re-initialize Lucide icons in the footer
+        if (typeof lucide !== 'undefined') {
+            lucide.createIcons();
+        }
+    }
 });
