@@ -273,9 +273,9 @@
 
     <style>
         .filter-tag {
-            background: white;
-            color: #ff6b35;
-            border: 2px solid #ffbeab;
+            background: var(--bg-card);
+            color: var(--accent-orange);
+            border: 2px solid var(--border-color-hover);
             padding: 8px 20px;
             border-radius: 25px;
             font-size: 0.95rem;
@@ -284,13 +284,13 @@
             transition: all 0.3s ease;
         }
         .filter-tag:hover {
-            border-color: #ff5e62;
-            background: #fff6f3;
+            border-color: var(--accent-red);
+            background: var(--bg-card-hover);
         }
         .filter-tag.active {
-            background: #ff5e62;
+            background: var(--accent-red);
             color: white;
-            border-color: #ff5e62;
+            border-color: var(--accent-red);
             box-shadow: 0 4px 15px rgba(255, 94, 98, 0.25);
         }
     </style>
@@ -365,6 +365,8 @@
             lucide.createIcons();
         }
     </script>
+<script src="global-search.js"></script>
 </body>
 
 </html>
+

@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Recipes - Midnight Cravings</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body class="search-results-page">
+
+    <nav>
+        <div class="logo"><i data-lucide="chef-hat"></i> SnackVerse</div>
+        <div class="nav-actions">
+            <div class="nav-search-wrapper">
+                <span class="search-icon"><i data-lucide="search"></i></span>
+                <input type="text" id="recipe-search" placeholder="Search recipes..." aria-label="Search recipes">
+                <button id="clear-search" class="clear-btn" aria-label="Clear search" style="display: none;">&times;</button>
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#trending-recipes">Recipes</a></li>
+                <li><a href="#">Guided Cooking</a></li>
+                <li><a href="index.html#about">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="search-layout-wrapper">
+        <!-- Left Sidebar: Filters & Controls -->
+        <aside class="search-sidebar">
+            <!-- Back Button -->
+            <a href="index.html" class="back-link"><i data-lucide="arrow-left"></i> Back to Home</a>
+            
+            <!-- Keyword Search refinement -->
+            <div class="sidebar-search-box">
+                <label for="page-search">Search Keyword</label>
+                <div class="search-wrapper">
+                    <span class="search-icon"><i data-lucide="search"></i></span>
+                    <input type="text" id="page-search" placeholder="Refine your search..." aria-label="Search recipes">
+                    <button id="page-clear-search" class="clear-btn" aria-label="Clear search" style="display: none;">&times;</button>
+                </div>
+            </div>
+
+            <!-- Vibe Category Filters -->
+            <div class="filter-group">
+                <h4>Vibe Category</h4>
+                <div class="filter-options">
+                    <button class="filter-pill active" data-filter="all">All Recipes</button>
+                    <button class="filter-pill" data-filter="veg">Vegetarian</button>
+                    <button class="filter-pill" data-filter="cheesy">Cheesy Center</button>
+                    <button class="filter-pill" data-filter="spicy">Spicy Kick</button>
+                    <button class="filter-pill" data-filter="dessert">Sweets & Desserts</button>
+                    <button class="filter-pill" data-filter="quick">Quick Hacks</button>
+                    <button class="filter-pill" data-filter="fusion">Fusion Street</button>
+                </div>
+            </div>
+
+            <!-- Difficulty Filters -->
+            <div class="filter-group">
+                <h4>Difficulty</h4>
+                <div class="filter-options horizontal">
+                    <button class="difficulty-btn active" data-diff="all">All</button>
+                    <button class="difficulty-btn" data-diff="Easy">Easy</button>
+                    <button class="difficulty-btn" data-diff="Medium">Medium</button>
+                    <button class="difficulty-btn" data-diff="Hard">Hard</button>
+                </div>
+            </div>
+
+            <!-- Cook/Prep Time Range Filter -->
+            <div class="filter-group">
+                <h4>Max Prep Time</h4>
+                <div class="time-slider-wrapper">
+                    <input type="range" id="time-range" min="5" max="150" step="5" value="150" aria-label="Max prep time">
+                    <div class="time-labels">
+                        <span>Min: 5m</span>
+                        <span id="time-val">Max: 150m</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dynamic Search Stats Box -->
+            <div class="search-stats-box">
+                <span class="stats-label">Status</span>
+                <div id="results-count" class="stats-val">0 recipes found</div>
+            </div>
+        </aside>
+
+        <!-- Right Content: Results Grid -->
+        <main class="search-main-content">
+            <!-- Floating shapes background -->
+            <div class="hero-bg-shapes" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
+                <div class="floating-shape shape-1"><i data-lucide="pizza"></i></div>
+                <div class="floating-shape shape-2"><i data-lucide="cup-soda"></i></div>
+                <div class="floating-shape shape-3"><i data-lucide="cookie"></i></div>
+                <div class="floating-shape shape-4"><i data-lucide="croissant"></i></div>
+                <div class="floating-shape shape-5"><i data-lucide="ice-cream"></i></div>
+                <div class="floating-shape shape-6"><i data-lucide="sandwich"></i></div>
+                <div class="floating-shape shape-7"><i data-lucide="cake"></i></div>
+                <div class="floating-shape shape-8"><i data-lucide="coffee"></i></div>
+            </div>
+
+            <header class="content-header">
+                <h1 class="main-title">Explore Recipes</h1>
+                <p id="search-query-display">Displaying all available recipes</p>
+            </header>
+
+            <div class="recipes-grid" id="search-grid" style="position: relative; z-index: 2;">
+                <!-- Dynamically populated cards -->
+            </div>
+
+            <div id="no-results" class="no-results" style="display: none; position: relative; z-index: 2;">
+                <span class="no-results-icon"><i data-lucide="frown"></i></span>
+                <h3>No Matches Found</h3>
+                <p id="no-results-text">We couldn't find any recipes matching your criteria. Try refining your keyword, selecting a different difficulty, or increasing the max prep time.</p>
+            </div>
+        </main>
+    </div>
+
+    <footer>
+        <div class="footer-bg-shapes">
+            <div class="footer-shape footer-shape-1"><i data-lucide="pizza"></i></div>
+            <div class="footer-shape footer-shape-2"><i data-lucide="cup-soda"></i></div>
+            <div class="footer-shape footer-shape-3"><i data-lucide="cookie"></i></div>
+            <div class="footer-shape footer-shape-4"><i data-lucide="croissant"></i></div>
+            <div class="footer-shape footer-shape-5"><i data-lucide="ice-cream"></i></div>
+            <div class="footer-shape footer-shape-6"><i data-lucide="coffee"></i></div>
+        </div>
+        <p>© 2026 MIDNIGHT CRAVINGS. All Rights Reserved.</p>
+    </footer>
+
+    <style>
+        body.search-results-page {
+            background: var(--bg-primary) !important;
+            color: var(--text-primary);
+            transition: var(--theme-transition);
+        }
+
+        .search-layout-wrapper {
+            display: grid;
+            grid-template-columns: 320px 1fr;
+            min-height: calc(100vh - 80px);
+            background: var(--bg-primary);
+            position: relative;
+            transition: var(--theme-transition);
+        }
+
+        .search-sidebar {
+            background: var(--bg-secondary);
+            border-right: 1px solid var(--border-color);
+            padding: 40px 30px;
+            position: sticky;
+            top: 0;
+            height: calc(100vh - 80px);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            z-index: 5;
+            color: var(--text-primary);
+            transition: var(--theme-transition);
+        }
+
+        .search-main-content {
+            padding: 50px 45px;
+            background: var(--bg-primary);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            transition: var(--theme-transition);
+        }
+
+        /* Back Link */
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: var(--accent-red);
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: transform 0.2s ease;
+            margin-bottom: 5px;
+            font-family: 'Outfit', sans-serif;
+        }
+        
+        .back-link:hover {
+            transform: translateX(-4px);
+        }
+
+        .back-link .lucide {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Sidebar Search input spacing */
+        .sidebar-search-box {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .sidebar-search-box label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            font-weight: bold;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Filters formatting */
+        .filter-group {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+        }
+
+        .filter-group:last-of-type {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .filter-group h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            font-weight: bold;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .filter-pill {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: transparent;
+            border: 1px solid transparent;
+            padding: 8px 12px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .filter-pill:hover {
+            background: var(--bg-card-hover);
+            color: var(--text-primary);
+        }
+
+        .filter-pill.active {
+            background: var(--tip-bg);
+            color: var(--accent-red);
+            font-weight: 600;
+        }
+
+        /* Difficulty Buttons styling */
+        .filter-options.horizontal {
+            display: flex;
+            flex-direction: row;
+            gap: 6px;
+        }
+
+        .difficulty-btn {
+            flex: 1;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 8px 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            color: var(--text-secondary);
+            text-align: center;
+            transition: all 0.2s;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .difficulty-btn:hover {
+            border-color: var(--border-color-hover);
+            background: var(--bg-card-hover);
+        }
+
+        .difficulty-btn.active {
+            background: var(--accent-red);
+            border-color: var(--accent-red);
+            color: white;
+        }
+
+        /* Time slider styles */
+        .time-slider-wrapper {
+            padding: 6px 0;
+        }
+
+        #time-range {
+            width: 100%;
+            accent-color: var(--accent-red);
+            cursor: pointer;
+        }
+
+        .time-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Stats Box */
+        .search-stats-box {
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            margin-top: auto;
+        }
+
+        .stats-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: 5px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .stats-val {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Main Area Header */
+        .content-header {
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .content-header .main-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        #search-query-display {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        /* Floating shapes contrast colors for search page */
+        .search-main-content .floating-shape {
+            opacity: 0.22;
+            transition: all 0.3s ease;
+        }
+        .search-main-content .shape-1 { color: var(--accent-red); }
+        .search-main-content .shape-2 { color: var(--accent-orange); }
+        .search-main-content .shape-3 { color: #7a33ff; }
+        .search-main-content .shape-4 { color: #d933ff; }
+        .search-main-content .shape-5 { color: #24d182; }
+        .search-main-content .shape-6 { color: #18c2c2; }
+        .search-main-content .shape-7 { color: #ffd033; }
+        .search-main-content .shape-8 { color: #2888ff; }
+
+        /* Mobile adaptation overrides */
+        @media (max-width: 992px) {
+            .search-layout-wrapper {
+                grid-template-columns: 1fr;
+            }
+            .search-sidebar {
+                position: relative;
+                top: 0;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding: 30px 20px;
+                gap: 20px;
+            }
+            .search-main-content {
+                padding: 30px 20px;
+            }
+            .search-stats-box {
+                margin-top: 10px;
+            }
+        }
+    </style>
+
+    <script>
+        // Full catalog of all 48 recipes on SnackVerse
+        const recipes = [
+            // Pizzas
+            {
+                title: "Homemade Cheesy Pizza",
+                page: "homemade-cheesy-pizza.html",
+                image: "pizza_recipe.png",
+                time: "25m",
+                difficulty: "Easy",
+                description: "Crispy, bubbly, restaurant-quality cheese pizza made right in your kitchen.",
+                tags: "baking cheesy italian simple all pizza"
+            },
+            {
+                title: "Cheesy Vegetarian Pizza Muffins",
+                page: "cheesy-vegetarian-pizza-muffins.html",
+                image: "pizza_muffins.png",
+                time: "55m",
+                difficulty: "Medium",
+                description: "Bite-sized savory muffins packed with pizza flavor and a gooey melted cheese crown.",
+                tags: "baking muffins fusion quick snacks veg all pizza cheesy"
+            },
+            {
+                title: "Gujarati Dhokla Pizza",
+                page: "gujarati-dhokla-pizza.html",
+                image: "dhokla_pizza.png",
+                time: "40m",
+                difficulty: "Medium",
+                description: "A unique fusion twist combining soft, steamed Khatta Dhokla with classic Italian pizza toppings.",
+                tags: "steamed fusion dhokla indian high protein veg all pizza"
+            },
+            {
+                title: "Pineapple Paneer Tikka Tawa Pizza",
+                page: "sweet-and-spicy-pineapple-paneer-tikka-tawa-pizza.html",
+                image: "pineapple_paneer_pizza.png",
+                time: "135m",
+                difficulty: "Hard",
+                description: "A delicious stovetop fusion pizza featuring marinated paneer tikka and sweet caramelized pineapple.",
+                tags: "tawa skillet fusion paneer sweet spicy veg all pizza"
+            },
+            {
+                title: "Tandoori Paneer Tikka Skillet Pizza",
+                page: "tandoori-paneer-tikka-skillet-pizza.html",
+                image: "tandoori_paneer_pizza.png",
+                time: "45m",
+                difficulty: "Medium",
+                description: "Smoky tandoori paneer tikka pizza baked to perfection in a skillet with a soft whole wheat crust.",
+                tags: "tawa skillet skillet fusion tandoori paneer veg all pizza"
+            },
+            {
+                title: "Khakhra Pizza with Veggies",
+                page: "khakhra-pizza.html",
+                image: "khakhra_pizza.png",
+                time: "35m",
+                difficulty: "Easy",
+                description: "Super crispy and thin whole-wheat flatbread pizza topped with peppy cheese spread and sautéed veggies.",
+                tags: "crispy raw quick snacks indian light veg all pizza"
+            },
+            {
+                title: "Pav Bhaji Pizza",
+                page: "pav-bhaji-pizza.html",
+                image: "pav_bhaji_pizza.png",
+                time: "75m",
+                difficulty: "Medium",
+                description: "A street-food fusion sensation loading rich, spicy vegetable bhaji onto a crispy butter-toasted crust.",
+                tags: "baking fusion street food pav bhaji indian veg all pizza"
+            },
+            {
+                title: "Cheesy Tawa Pizza (Corn & Broccoli)",
+                page: "cheesy-tawa-pizza-corn-broccoli.html",
+                image: "corn_broccoli_pizza.png",
+                time: "40m",
+                difficulty: "Easy",
+                description: "A quick, healthy stovetop pizza loaded with sweet corn, broccoli, black olives, and melted cheese.",
+                tags: "tawa skillet cheesy corn broccoli quick snacks veg all pizza"
+            },
+            {
+                title: "Pull Apart Mini Pizza Boats",
+                page: "pull-apart-mini-pizza-boats.html",
+                image: "pizza_boats.png",
+                time: "100m",
+                difficulty: "Hard",
+                description: "Fun, shareable bread rolls shaped like boats, filled with mushrooms, capsicum, and a mountain of cheese.",
+                tags: "baking pull apart mini pizza boats mushrooms veg all pizza cheesy"
+            },
+            {
+                title: "Bread Waffle Pizza",
+                page: "bread-waffle-pizza.html",
+                image: "bread_waffle_pizza.png",
+                time: "30m",
+                difficulty: "Easy",
+                description: "A quick waffle-maker hack transforming bread slices into a crispy, cheese-stuffed waffle sandwich.",
+                tags: "waffle quick snacks simple cheesy sandwich veg all pizza"
+            },
+            {
+                title: "Mini Bread Pizza Canapes",
+                page: "mini-bread-pizza.html",
+                image: "mini_bread_pizza.png",
+                time: "35m",
+                difficulty: "Easy",
+                description: "Perfect party-sized mini pizzas featuring circular bread crusts stuffed with paneer and veggie filling.",
+                tags: "baking quick snacks simple mini bread cheesy veg all pizza"
+            },
+            // Burgers
+            {
+                title: "Veg Chili Cheese Burger",
+                page: "veg-chili-cheese-burger.html",
+                image: "veg_chili_cheese_burger.png",
+                time: "55m",
+                difficulty: "Medium",
+                description: "A decadent burger loading a crispy potato patty and melted cheddar cheese with a rich soy granule chili sauce.",
+                tags: "veg skillet spicy all burger cheesy"
+            },
+            {
+                title: "Vegan Bean & Tofu Burger",
+                page: "vegan-bean-tofu-burger.html",
+                image: "vegan_bean_tofu_burger.png",
+                time: "80m",
+                difficulty: "Medium",
+                description: "A clean, protein-packed vegan burger with a grilled mixed bean and tofu patty, fresh lettuce, and tomato.",
+                tags: "veg vegan grill healthy all burger"
+            },
+            {
+                title: "Bunless Black Bean Burger",
+                page: "black-bean-bunless-burger.html",
+                image: "black_bean_bunless_burger.png",
+                time: "80m",
+                difficulty: "Hard",
+                description: "A low-carb, nutrient-rich stack of grilled black bean patty, pineapple, beetroot, avocado, and fresh greens.",
+                tags: "veg grill healthy all burger"
+            },
+            {
+                title: "Avengers Aloo Tikki Burger",
+                page: "aloo-tikki-burger.html",
+                image: "aloo_tikki_burger.png",
+                time: "55m",
+                difficulty: "Medium",
+                description: "A classic fusion favorite featuring a crispy spiced aloo tikki patty and melted cheese spread in a toasted bun.",
+                tags: "veg baking skillet fusion all burger cheesy"
+            },
+            {
+                title: "Open Vegetable Patty Burger",
+                page: "open-veggie-burger.html",
+                image: "open_veggie_burger.png",
+                time: "100m",
+                difficulty: "Medium",
+                description: "A fun open-faced burger showcasing a breaded potato-peas-carrot patty topped with garlic mayonnaise and crispy bhujia.",
+                tags: "veg skillet fusion all burger"
+            },
+            {
+                title: "Five Spice Bean Burger",
+                page: "five-spice-bean-burger.html",
+                image: "five_spice_bean_burger.png",
+                time: "30m",
+                difficulty: "Easy",
+                description: "A unique, aromatic burger infused with Chinese five-spice powder, soy sauce, and melted cheese on a bean patty.",
+                tags: "veg skillet fusion all burger cheesy"
+            },
+            {
+                title: "Veggie Chop Burger",
+                page: "veggie-chop-burger.html",
+                image: "veggie_chop_burger.png",
+                time: "60m",
+                difficulty: "Medium",
+                description: "A crispy street-style chop patty stuffed with beets, carrots, and peas, layered with lettuce and burger mayonnaise.",
+                tags: "veg skillet all burger"
+            },
+            {
+                title: "Spicy Mushroom Veggie Burger",
+                page: "spicy-mushroom-burger.html",
+                image: "spicy_mushroom_burger.png",
+                time: "50m",
+                difficulty: "Medium",
+                description: "A fiery sautéed button mushroom stir-fry burger with spicy chili sauce and a creamy coleslaw layer.",
+                tags: "veg skillet all burger spicy"
+            },
+            {
+                title: "Mexican Chicken Burger",
+                page: "mexican-chicken-burger.html",
+                image: "mexican_chicken_burger.png",
+                time: "30m",
+                difficulty: "Medium",
+                description: "A zestful minced chicken patty burger seasoned with jalapenos and cilantro, topped with tomato salsa and sour cream.",
+                tags: "non-veg skillet spicy all burger"
+            },
+            {
+                title: "Homemade Black Bean Burger",
+                page: "homemade-black-bean-burger.html",
+                image: "homemade_black_bean_burger.png",
+                time: "75m",
+                difficulty: "Medium",
+                description: "A wholesome homemade black bean patty burger seasoned with mint and paprika on a whole wheat sandwich bun.",
+                tags: "veg skillet healthy all burger"
+            },
+            // Fries
+            {
+                title: "Healthy Vegetable Fries",
+                page: "healthy-vegetable-fries.html",
+                image: "veg_fries.png",
+                time: "45m",
+                difficulty: "Easy",
+                description: "A wholesome oven-roasted mix of potato, green zucchini, and sweet carrot fries seasoned with Italian herbs.",
+                tags: "veg healthy potatoes baking all fries"
+            },
+            {
+                title: "Oven Baked Sweet Potato Fries",
+                page: "sweet-potato-fries.html",
+                image: "sweet_potato_fries.png",
+                time: "35m",
+                difficulty: "Easy",
+                description: "Crispy and sweet oven-baked sweet potato wedges tossed with olive oil and spices.",
+                tags: "veg healthy potatoes baking sweet-potato all fries"
+            },
+            {
+                title: "Parmesan Corn Chili Fries",
+                page: "parmesan-corn-chili-fries.html",
+                image: "parmesan_chili_fries.png",
+                time: "40m",
+                difficulty: "Easy",
+                description: "Mouthwatering fries loaded with sweet corn, melted parmesan cheese, and a kick of chili flakes.",
+                tags: "veg potatoes cheese spicy all fries cheesy"
+            },
+            {
+                title: "Baked Polenta Fries",
+                page: "baked-polenta-fries.html",
+                image: "polenta_fries.png",
+                time: "45m",
+                difficulty: "Easy",
+                description: "Savory cornmeal polenta sticks baked to a golden crispness, perfect for dipping.",
+                tags: "veg healthy baking polenta all fries"
+            },
+            {
+                title: "Loaded Baked Potato French Fries",
+                page: "loaded-baked-potato-french-fries.html",
+                image: "loaded_french_fries.png",
+                time: "50m",
+                difficulty: "Medium",
+                description: "Indulgent oven-baked french fries loaded with cheddar cheese, sour cream, and fresh chives.",
+                tags: "veg potatoes baking cheesy loaded all fries cheesy"
+            },
+            {
+                title: "Tandoori Potato Wedges",
+                page: "tandoori-potato-wedges.html",
+                image: "tandoori_wedges.png",
+                time: "45m",
+                difficulty: "Medium",
+                description: "Thick potato wedges coated in a smoky tandoori yogurt marinade and baked until crispy.",
+                tags: "veg potatoes baking fusion tandoori all fries"
+            },
+            {
+                title: "Garlic & Ginger Potato Wedges",
+                page: "garlic-ginger-potato-wedges.html",
+                image: "garlic_ginger_wedges.png",
+                time: "50m",
+                difficulty: "Easy",
+                description: "Flavorful potato wedges baked with a kick of fresh garlic, ginger, and aromatic spices.",
+                tags: "veg potatoes baking garlic ginger all fries"
+            },
+            {
+                title: "Rosemary Sweet Potato Crisps",
+                page: "rosemary-sweet-potato-chips.html",
+                image: "sweet_potato_chips.png",
+                time: "35m",
+                difficulty: "Easy",
+                description: "Thinly sliced sweet potatoes baked with fresh rosemary and sea salt until perfectly crunchy.",
+                tags: "veg healthy crisps rosemary sweet-potato all fries chips"
+            },
+            {
+                title: "Baked Banana Chips",
+                page: "baked-banana-chips.html",
+                image: "banana_chips.png",
+                time: "30m",
+                difficulty: "Easy",
+                description: "A healthy, oven-baked version of classic Kerala style crispy banana chips with turmeric and salt.",
+                tags: "veg healthy crisps banana banana-chips all fries chips"
+            },
+            {
+                title: "Baked Corn & Tortilla Chips",
+                page: "baked-tortilla-chips-paprika.html",
+                image: "tortilla_chips.png",
+                time: "35m",
+                difficulty: "Easy",
+                description: "Crispy, homemade oven-baked tortilla chips seasoned with smoky paprika, perfect with salsa.",
+                tags: "veg healthy crisps tortilla paprika all fries chips"
+            },
+            // Munchies & Other
+            {
+                title: "Boti Masala Chaat (Fryums Chaat)",
+                page: "boti-masala-chaat-fryums.html",
+                image: "boti_masala_chaat.png",
+                time: "15m",
+                difficulty: "Easy",
+                description: "Super crunchy, tangy, and spiced snack made by stuffing hollow boti fryums with chopped onions, carrots, and sweet-sour chutneys.",
+                tags: "chaat fryums street spicy snack savory vegetarian desi indian munchies"
+            },
+            {
+                title: "Cheese Stuffed Aloo Bonda",
+                page: "cheese-stuffed-aloo-bonda.html",
+                image: "aloo_bonda.png",
+                time: "45m",
+                difficulty: "Medium",
+                description: "Traditional spiced potato dumplings stuffed with a surprise gooey Mozzarella cheese center, cooked until golden-crisp.",
+                tags: "bonda cheese aloo potato fried snack vegetarian desi indian munchies cheesy"
+            },
+            {
+                title: "Chicken Tikka Taco with Cheesy Garlic Mayo",
+                page: "chicken-tikka-taco.html",
+                image: "chicken_tikka_taco.png",
+                time: "20m",
+                difficulty: "Easy",
+                description: "Fusion street style tacos stuffed with refried beans, crispy salad, green chicken tikka, and drizzled with cheesy garlic mayo.",
+                tags: "taco chicken tikka cheese mayo spicy non-vegetarian fusion desi indian munchies cheesy"
+            },
+            {
+                title: "Corn Cheese Balls",
+                page: "corn-cheese-balls.html",
+                image: "corn_cheese_balls.png",
+                time: "40m",
+                difficulty: "Medium",
+                description: "Golden, crispy breaded cheese balls filled with sweet corn kernels and a molten Cheddar center that pulls apart beautifully.",
+                tags: "cheese corn fried snack vegetarian desi indian munchies cheesy"
+            },
+            {
+                title: "Chicken Kathi Roll",
+                page: "chicken-kathi-roll.html",
+                image: "chicken_kathi_roll.png",
+                time: "40m",
+                difficulty: "Medium",
+                description: "Kolkata-style street wrap featuring flaky paratha layered with egg, stuffed with tandoori chicken tikka, onion, and spices.",
+                tags: "roll wrap chicken kathi tandoori egg non-vegetarian street desi indian munchies"
+            },
+            {
+                title: "Chinese Bhel",
+                page: "chinese-bhel.html",
+                image: "chinese_bhel.png",
+                time: "30m",
+                difficulty: "Easy",
+                description: "Crispy fried noodles tossed with julienned vegetables in a glossy, fiery Schezwan chili-soy sauce glaze.",
+                tags: "bhel noodles crispy spicy veggie fusion snack street vegetarian desi indian munchies"
+            },
+            {
+                title: "Spicy Crunchy Masala Idli",
+                page: "spicy-crunchy-masala-idli.html",
+                image: "masala_idli.png",
+                time: "30m",
+                difficulty: "Easy",
+                description: "A fast street-style hack turning leftover idlis into crispy, fried finger shapes tossed in a spicy green pepper and onion sauce.",
+                tags: "idli masala spicy crispy snack vegetarian street desi indian munchies"
+            },
+            {
+                title: "Rock Toast (Semolina Bread Toast)",
+                page: "rock-toast-semolina-bread-toast.html",
+                image: "rock_toast.png",
+                time: "18m",
+                difficulty: "Easy",
+                description: "Crispy pan-toasted bread topped with a savory semolina and yogurt batter loaded with fresh peppers, onions, and green chilies.",
+                tags: "toast semolina rava sooji bread breakfast snack vegetarian desi indian munchies"
+            },
+            {
+                title: "Cheese & Black Bean Quesadillas",
+                page: "cheese-black-beans-quesadillas.html",
+                image: "quesadillas.png",
+                time: "30m",
+                difficulty: "Easy",
+                description: "Crispy golden toasted tortillas folded over seasoned black beans and a thick layer of gooey Cheddar cheese.",
+                tags: "quesadilla cheese beans mexican savory vegetarian desi indian munchies cheesy"
+            },
+            {
+                title: "Dahi Batata Puri Chaat",
+                page: "dahi-batata-puri-chaat.html",
+                image: "dahi_batata_puri.png",
+                time: "45m",
+                difficulty: "Medium",
+                description: "Crispy golgappa shells packed with spiced potato chunks, cooled sweet yogurt, mint chutney, tamarind chutney, and fine sev.",
+                tags: "chaat dahi batata puri yogurt street spicy vegetarian snack desi indian munchies"
+            },
+            {
+                title: "Kewpie Ramen Hack",
+                page: "kewpie-ramen-hack.html",
+                image: "ramen_hack.png",
+                time: "12m",
+                difficulty: "Easy",
+                description: "Japanese Kewpie mayonnaise, raw egg, and seasoning packet whisked into ramen to create an ultra-rich broth.",
+                tags: "ramen hack spicy savory noodles swicy savory cheat-code"
+            },
+            {
+                title: "Baked Feta Pasta",
+                page: "baked-feta-pasta.html",
+                image: "feta_pasta.png",
+                time: "35m",
+                difficulty: "Medium",
+                description: "A block of rich feta cheese and sweet cherry tomatoes baked to melty perfection, tossed with garlic and pasta.",
+                tags: "pasta cheese feta bake savory italian swicy savory cheesy"
+            },
+            {
+                title: "Crispy Pesto Eggs",
+                page: "crispy-pesto-eggs.html",
+                image: "pesto_eggs.png",
+                time: "10m",
+                difficulty: "Easy",
+                description: "Sunny-side up eggs fried in a rich puddle of aromatic basil pesto until the edges are crispy.",
+                tags: "eggs breakfast pesto savory swicy savory tiktok"
+            },
+            {
+                title: "Beef Birria Tacos",
+                page: "birria-tacos.html",
+                image: "birria_tacos.png",
+                time: "45m",
+                difficulty: "Medium",
+                description: "Melt-in-your-mouth slow-cooked beef in a rich, spiced chili broth, folded into corn tortillas with gooey cheese and fried until crispy.",
+                tags: "tacos beef cheese spicy savory mexican swicy savory texture cheesy"
+            },
+            {
+                title: "Dalgona Coffee",
+                page: "dalgona-coffee.html",
+                image: "dalgona_coffee.png",
+                time: "8m",
+                difficulty: "Easy",
+                description: "Double-layered iced coffee featuring sweet, thick whipped coffee foam pillowed on cold fresh milk.",
+                tags: "coffee drink beverage sweet caffeinated aesthetic sips tiktok"
+            },
+            {
+                title: "Golden Sweet Croffle",
+                page: "golden-sweet-croffle.html",
+                image: "croffle.png",
+                time: "15m",
+                difficulty: "Easy",
+                description: "Flaky croissant dough pressed into a waffle maker, sweet and crispy.",
+                tags: "croffle dessert sweets dopamine cheats texture tiktok"
+            },
+            {
+                title: "Strawberry Tanghulu",
+                page: "strawberry-tanghulu.html",
+                image: "tanghulu.png",
+                time: "20m",
+                difficulty: "Medium",
+                description: "Crunchy, glass-like sugar shell-coated sweet strawberries.",
+                tags: "tanghulu dessert fruit sweets dopamine cheats texture"
+            }
+        ];
+
+        // Elements selectors
+        const navbarSearch = document.getElementById('recipe-search');
+        const navbarClear = document.getElementById('clear-search');
+        const pageSearch = document.getElementById('page-search');
+        const pageClear = document.getElementById('page-clear-search');
+        const filterPills = document.querySelectorAll('.filter-pill');
+        const difficultyBtns = document.querySelectorAll('.difficulty-btn');
+        const timeRangeInput = document.getElementById('time-range');
+        const timeValDisplay = document.getElementById('time-val');
+        const searchGrid = document.getElementById('search-grid');
+        const resultsCountDisplay = document.getElementById('results-count');
+        const noResults = document.getElementById('no-results');
+        const queryDisplay = document.getElementById('search-query-display');
+
+        let activeFilter = 'all';
+        let activeDiff = 'all';
+        let maxTime = 150;
+        let searchQuery = '';
+
+        // Extract search query from URL parameter
+        function getQueryFromUrl() {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get('q') || '';
+        }
+
+        // Render recipe cards into the grid
+        function renderRecipes(list) {
+            searchGrid.innerHTML = '';
+            
+            if (list.length === 0) {
+                noResults.style.display = 'block';
+                return;
+            }
+            
+            noResults.style.display = 'none';
+            
+            list.forEach(recipe => {
+                const card = document.createElement('div');
+                card.className = 'recipe-card';
+                card.innerHTML = `
+                    <a href="${recipe.page}" class="recipe-link">
+                        <div class="recipe-image-wrapper">
+                            <img src="${recipe.image}" alt="${recipe.title}">
+                            <div class="recipe-badges">
+                                <span class="badge time"><i data-lucide="clock"></i> ${recipe.time}</span>
+                                <span class="badge difficulty"><i data-lucide="flame"></i> ${recipe.difficulty}</span>
+                            </div>
+                        </div>
+                        <div class="recipe-info">
+                            <h3>${recipe.title}</h3>
+                            <p>${recipe.description}</p>
+                            <span class="cta-link">View Recipe <i data-lucide="arrow-right"></i></span>
+                        </div>
+                    </a>
+                `;
+                searchGrid.appendChild(card);
+            });
+
+            // Re-initialize Lucide icons
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        }
+
+        // Main filter and search execution function
+        function filterAndSearch() {
+            const terms = searchQuery.toLowerCase().split(/\s+/).filter(t => t.length > 0);
+            
+            const filtered = recipes.filter(recipe => {
+                // Match search terms
+                const text = (recipe.title + " " + recipe.description + " " + recipe.tags).toLowerCase();
+                const matchesSearch = terms.every(term => text.includes(term));
+                
+                // Match filter pill
+                const matchesFilter = (activeFilter === 'all' || recipe.tags.includes(activeFilter));
+                
+                // Match difficulty
+                const matchesDiff = (activeDiff === 'all' || recipe.difficulty === activeDiff);
+                
+                // Match prep time (parse '45m' -> 45)
+                const recipeTime = parseInt(recipe.time) || 0;
+                const matchesTime = recipeTime <= maxTime;
+                
+                return matchesSearch && matchesFilter && matchesDiff && matchesTime;
+            });
+
+            // Update headings
+            resultsCountDisplay.textContent = `${filtered.length} recipe${filtered.length === 1 ? '' : 's'} found`;
+            
+            if (searchQuery) {
+                queryDisplay.textContent = `Displaying recipes matching "${searchQuery}"`;
+            } else {
+                queryDisplay.textContent = `Displaying all available recipes`;
+            }
+
+            renderRecipes(filtered);
+        }
+
+        // Sync both search inputs
+        function syncSearchQuery(value) {
+            searchQuery = value.trim();
+            navbarSearch.value = searchQuery;
+            pageSearch.value = searchQuery;
+
+            navbarClear.style.display = searchQuery ? 'flex' : 'none';
+            pageClear.style.display = searchQuery ? 'flex' : 'none';
+
+            filterAndSearch();
+        }
+
+        // Initialize listeners
+        navbarSearch.addEventListener('input', (e) => {
+            syncSearchQuery(e.target.value);
+        });
+
+        pageSearch.addEventListener('input', (e) => {
+            syncSearchQuery(e.target.value);
+        });
+
+        // Clear search inputs
+        navbarClear.addEventListener('click', () => {
+            syncSearchQuery('');
+            navbarSearch.focus();
+        });
+
+        pageClear.addEventListener('click', () => {
+            syncSearchQuery('');
+            pageSearch.focus();
+        });
+
+        // Pill Filter listeners
+        filterPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                filterPills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+                activeFilter = pill.getAttribute('data-filter');
+                filterAndSearch();
+            });
+        });
+
+        // Difficulty listeners
+        difficultyBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                difficultyBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                activeDiff = btn.getAttribute('data-diff');
+                filterAndSearch();
+            });
+        });
+
+        // Time slider listener
+        timeRangeInput.addEventListener('input', (e) => {
+            maxTime = parseInt(e.target.value);
+            timeValDisplay.textContent = `Max: ${maxTime}m`;
+            filterAndSearch();
+        });
+
+        // Initial load execution
+        document.addEventListener('DOMContentLoaded', () => {
+            const query = getQueryFromUrl();
+            syncSearchQuery(query);
+            
+            if (typeof lucide !== 'undefined') {
+                lucide.createIcons();
+            }
+        });
+    </script>
+</body>
+
+</html>
