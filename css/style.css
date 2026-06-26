@@ -544,23 +544,36 @@ nav a {
 
 @media (max-width: 768px) {
     nav {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px 20px;
-        text-align: center;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        grid-template-areas: 
+            "logo toggle"
+            "search search"
+            "menu menu";
+        gap: 12px;
+        padding: 12px 16px;
+        align-items: center;
+    }
+    .logo {
+        grid-area: logo;
+        justify-self: start;
     }
     .nav-actions {
-        flex-direction: column;
-        gap: 15px;
-        width: 100%;
+        display: contents; /* Promotes children to be direct grid items of nav */
     }
     .nav-search-wrapper {
+        grid-area: search;
         width: 100% !important;
     }
+    .theme-toggle {
+        grid-area: toggle;
+        justify-self: end;
+    }
     nav ul {
-        flex-wrap: wrap;
+        grid-area: menu;
         justify-content: center;
-        gap: 15px;
+        flex-wrap: wrap;
+        gap: 12px;
     }
     .hero h1 {
         font-size: 2.5rem;

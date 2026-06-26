@@ -11,7 +11,8 @@
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
-    const isSubPage = window.location.pathname.includes('/recipes/');
+    const currentScript = document.currentScript;
+    const isSubPage = currentScript && currentScript.getAttribute('src') && currentScript.getAttribute('src').startsWith('../');
     const pathPrefix = isSubPage ? '../' : '';
     const searchInput = document.getElementById("recipe-search");
     const clearBtn = document.getElementById("clear-search");
